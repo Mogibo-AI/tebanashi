@@ -23,21 +23,21 @@
 - [x] Collect answers for all `[Answer]:` tags in this plan
 - [x] Analyze answers for ambiguity or contradiction
 - [x] Create clarification questions if needed (not needed; no blocking ambiguity found)
-- [ ] Obtain explicit approval of this story generation plan
+- [x] Obtain explicit approval of this story generation plan
 
 ## Story Generation Checklist
 
-- [ ] Read approved requirements and story planning answers
-- [ ] Select the approved story breakdown approach
-- [ ] Generate `personas.md` with user archetypes and relevant characteristics
-- [ ] Generate `stories.md` with user stories following INVEST criteria
-- [ ] Include acceptance criteria for each story
-- [ ] Include user-visible error and fallback scenarios
-- [ ] Include safety/guardrail scenarios
-- [ ] Map personas to relevant user stories
-- [ ] Verify stories are Independent, Negotiable, Valuable, Estimable, Small, and Testable
-- [ ] Verify Security Baseline user-visible concerns are represented where applicable
-- [ ] Mark completed checklist items as `[x]` immediately after generation
+- [x] Read approved requirements and story planning answers
+- [x] Select the approved story breakdown approach
+- [x] Generate `personas.md` with user archetypes and relevant characteristics
+- [x] Generate `stories.md` with user stories following INVEST criteria
+- [x] Include acceptance criteria for each story
+- [x] Include user-visible error and fallback scenarios
+- [x] Include safety/guardrail scenarios
+- [x] Map personas to relevant user stories
+- [x] Verify stories are Independent, Negotiable, Valuable, Estimable, Small, and Testable
+- [x] Verify Security Baseline user-visible concerns are represented where applicable
+- [x] Mark completed checklist items as `[x]` immediately after generation
 
 ## Story Breakdown Options
 
