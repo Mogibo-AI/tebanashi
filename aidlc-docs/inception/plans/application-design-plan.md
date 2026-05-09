@@ -1,184 +1,184 @@
-# Application Design Plan
+# アプリケーション設計計画
 
-## Purpose
+## 目的
 
-承認済み Requirements、User Stories、Execution Plan をもとに、Tebanashi 初回開発スコープの高レベルアプリケーション設計を作成する。
-この plan の `[Answer]:` がすべて埋まり、回答の曖昧さが解消されるまで、Application Design artifacts は生成しない。
+承認済み要求、ユーザーストーリー、実行計画をもとに、Tebanashi 初回開発スコープの高レベルアプリケーション設計を作成する。
+この計画の `[Answer]:` がすべて埋まり、回答の曖昧さが解消されるまで、アプリケーション設計成果物は生成しない。
 
-## Context
+## コンテキスト
 
-- **Project**: Tebanashi
-- **Stage**: INCEPTION - Application Design
-- **Approved Initial Scope**: 音声/テキスト入力から AI によるやめ候補作成・保存・表示まで
-- **Primary Inputs**:
+- **プロジェクト**: Tebanashi
+- **ステージ**: INCEPTION - アプリケーション設計
+- **承認済み初回スコープ**: 音声/テキスト入力から AI によるやめ候補作成・保存・表示まで
+- **主な入力**:
   - `aidlc-docs/inception/requirements/requirements.md`
   - `aidlc-docs/inception/user-stories/stories.md`
   - `aidlc-docs/inception/user-stories/personas.md`
   - `aidlc-docs/inception/plans/execution-plan.md`
 
-## Design Planning Progress
+## 設計計画の進捗
 
-- [x] Read Application Design rule file
-- [x] Read approved requirements
-- [x] Read approved user stories and personas
-- [x] Read approved execution plan
-- [x] Create application design plan
-- [ ] Collect answers for all `[Answer]:` tags in this plan
-- [ ] Analyze answers for ambiguity or contradiction
-- [ ] Create follow-up questions if needed
-- [ ] Obtain explicit approval of this application design plan
+- [x] アプリケーション設計ルールを読む
+- [x] 承認済み要求を読む
+- [x] 承認済みユーザーストーリーとペルソナを読む
+- [x] 承認済み実行計画を読む
+- [x] アプリケーション設計計画を作成する
+- [ ] この計画内のすべての `[Answer]:` タグに対する回答を収集する
+- [ ] 回答の曖昧さや矛盾を分析する
+- [ ] 必要に応じて追加質問を作成する
+- [ ] このアプリケーション設計計画の明示的な承認を得る
 
-## Design Generation Checklist
+## 設計生成チェックリスト
 
-- [ ] Generate `aidlc-docs/inception/application-design/components.md`
-- [ ] Generate `aidlc-docs/inception/application-design/component-methods.md`
-- [ ] Generate `aidlc-docs/inception/application-design/services.md`
-- [ ] Generate `aidlc-docs/inception/application-design/component-dependency.md`
-- [ ] Generate `aidlc-docs/inception/application-design/application-design.md`
-- [ ] Define component names, purposes, responsibilities, and interfaces
-- [ ] Define high-level method signatures and input/output types
-- [ ] Define service orchestration boundaries
-- [ ] Define dependency relationships and communication patterns
-- [ ] Validate consistency with Security Baseline
-- [ ] Carry PBT Partial obligations forward to later stages where applicable
+- [ ] `aidlc-docs/inception/application-design/components.md` を生成する
+- [ ] `aidlc-docs/inception/application-design/component-methods.md` を生成する
+- [ ] `aidlc-docs/inception/application-design/services.md` を生成する
+- [ ] `aidlc-docs/inception/application-design/component-dependency.md` を生成する
+- [ ] `aidlc-docs/inception/application-design/application-design.md` を生成する
+- [ ] コンポーネント名、目的、責務、インターフェースを定義する
+- [ ] 高レベルのメソッドシグネチャと入出力型を定義する
+- [ ] サービスのオーケストレーション境界を定義する
+- [ ] 依存関係と通信パターンを定義する
+- [ ] Security Baseline との整合性を検証する
+- [ ] PBT Partial の義務を該当する後続ステージへ引き継ぐ
 
-## Proposed Component Areas
+## 想定コンポーネント領域
 
-The following component areas are expected unless answers below direct otherwise:
+以下の質問回答で別方針が示されない限り、次のコンポーネント領域を想定する。
 
-| Component Area | Purpose |
+| コンポーネント領域 | 目的 |
 |---|---|
-| App Shell and Routing | React routing, auth gating, layout shell, responsive page composition |
-| Auth and Identity | Cognito/Google sign-in session handling and owner identity exposure |
-| Browser Support Gate | Frontend Chrome support detection and unsupported-browser notice |
-| Intake UI | Voice input state, text fallback, submission flow, user-visible error states |
-| Transcription Client | Browser-side Transcribe Streaming client integration |
-| Card Structuring API Client | Frontend client for Lambda/AppSync-backed structuring workflow |
-| Card Domain Model | Card schema, status values, validation contracts, owner mapping |
-| Card Persistence | AppSync/Amplify Data access for saving and listing owner-scoped cards |
-| AI Structuring Function | Lambda boundary for Bedrock Claude structuring |
-| Safety Guardrail | Guardrail classification, Bedrock Guardrails response handling, safe response shaping |
-| Observability | Event emission, structured logging, p95/success-rate metric support |
+| アプリシェルとルーティング | React ルーティング、認証ゲート、レイアウトシェル、レスポンシブなページ構成 |
+| 認証とユーザー識別 | Cognito/Google ログインのセッション処理と owner identity の提供 |
+| ブラウザサポートゲート | フロントエンドでの Chrome 対応判定と非対応ブラウザ案内 |
+| 入力 UI | 音声入力状態、テキストフォールバック、送信フロー、ユーザー向けエラー状態 |
+| 文字起こしクライアント | ブラウザ側の Transcribe Streaming クライアント統合 |
+| カード構造化 API クライアント | Lambda/AppSync に支えられた構造化ワークフロー用フロントエンドクライアント |
+| カードドメインモデル | Card スキーマ、状態値、検証契約、owner マッピング |
+| カード永続化 | owner スコープの Card 保存・一覧表示のための AppSync/Amplify Data アクセス |
+| AI 構造化関数 | Bedrock Claude による構造化を担う Lambda 境界 |
+| 安全ガードレール | ガードレール分類、Bedrock Guardrails 応答処理、安全な応答整形 |
+| 観測性 | イベント送信、構造化ログ、p95/成功率メトリクスの支援 |
 
-## Questions
+## 質問
 
-Please answer every question by filling in the letter choice after each `[Answer]:` tag.
-If none of the options match, choose `X` and describe your preference.
+各質問の `[Answer]:` の後に選択肢の文字を記入してください。
+選択肢に合わない場合は `X` を選び、希望する内容を記入してください。
 
-### Question 1: Frontend Component Boundary
+### Question 1: フロントエンドのコンポーネント境界
 
-React frontend components should be organized primarily by which boundary?
+React フロントエンドのコンポーネントは、主にどの境界で整理しますか？
 
-A) Feature folders: `auth`, `platform`, `intake`, `cards`, `safety`, `observability`
-B) Layer folders: `pages`, `components`, `hooks`, `lib`, `types`
-C) Hybrid: feature folders for domain-specific code, shared layer folders for reusable UI/hooks/lib
+A) 機能別フォルダ: `auth`, `platform`, `intake`, `cards`, `safety`, `observability`
+B) レイヤー別フォルダ: `pages`, `components`, `hooks`, `lib`, `types`
+C) ハイブリッド: ドメイン固有コードは機能別、再利用 UI/hooks/lib は共通レイヤー別
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 2: Authentication UI Boundary
+### Question 2: 認証 UI の境界
 
-Google sign-in UI should be represented in design as which component boundary?
+Google ログイン UI は、設計上どのコンポーネント境界として扱いますか？
 
-A) Use Amplify UI Authenticator as the auth boundary with light app-specific wrapping
-B) Design a custom sign-in page that calls Amplify Auth APIs directly
-C) Treat auth UI as external for initial scope and design only the authenticated app shell
+A) Amplify UI Authenticator を認証境界として使い、アプリ固有の軽いラップだけ行う
+B) Amplify Auth API を直接呼び出す独自ログインページを設計する
+C) 初回スコープでは認証 UI を外部扱いにし、認証済みアプリシェルのみ設計する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 3: AI Structuring and Safety Boundary
+### Question 3: AI 構造化と安全制御の境界
 
-How should AI structuring and safety guardrail responsibilities be separated?
+AI 構造化と安全ガードレールの責務はどのように分離しますか？
 
-A) Single Lambda orchestrates guardrail check, Bedrock structuring, schema validation, and response shaping
-B) Separate Lambda functions: one for guardrail/safety classification and one for card structuring
-C) Frontend calls a single backend API, but backend design separates safety and structuring as internal modules
+A) 単一 Lambda がガードレール確認、Bedrock 構造化、スキーマ検証、応答整形をまとめてオーケストレーションする
+B) Lambda を分ける: ガードレール/安全分類用と Card 構造化用を別関数にする
+C) フロントエンドは単一バックエンド API を呼ぶが、バックエンド内部では safety と structuring を別モジュールとして設計する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 4: Guardrail Result Persistence
+### Question 4: ガードレール判定結果の永続化
 
-When an input triggers health/medical/addiction/legal/caregiving guardrails, should a record be persisted?
+健康・医療・依存症・法的義務・扶養/介護などのガードレールが発火した入力について、記録を永続化しますか？
 
-A) Do not persist a Card; show safe response only
-B) Persist a Card with `needs_attention` status and clearly separate it from active cards
-C) Persist only a minimal audit/metric event without user text or Card data
+A) Card は永続化せず、安全な応答のみ表示する
+B) `needs_attention` ステータスの Card として永続化し、active cards とは明確に分離する
+C) ユーザーテキストや Card データを含まない最小限の監査/メトリクスイベントだけ永続化する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 5: Card Creation Orchestration
+### Question 5: Card 作成フローのオーケストレーション
 
-Which component should orchestrate the end-to-end card creation flow after input text is ready?
+入力テキストが準備できた後、Card 作成までの一連のフローはどのコンポーネントがオーケストレーションしますか？
 
-A) Frontend orchestration: UI calls structuring Lambda, then AppSync mutation to save Card
-B) Backend orchestration: one backend operation structures and persists Card, returning saved Card
-C) Split orchestration: frontend owns UX state, backend owns all trusted mutation and persistence steps
+A) フロントエンド主導: UI が構造化 Lambda を呼び、その後 AppSync mutation で Card を保存する
+B) バックエンド主導: 1 つのバックエンド処理が構造化と永続化を行い、保存済み Card を返す
+C) 分割: フロントエンドは UX 状態を担当し、バックエンドは信頼境界内の変更処理と永続化をすべて担当する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 6: Transcribe Streaming Boundary
+### Question 6: Transcribe Streaming の境界
 
-How should Transcribe Streaming be represented in the design?
+Transcribe Streaming は設計上どのように表現しますか？
 
-A) Browser direct Transcribe Streaming client using Cognito Identity Pool credentials
-B) API Gateway WebSocket + Lambda relay to Transcribe Streaming
-C) Design both, with browser direct as primary and relay as documented fallback
+A) Cognito Identity Pool の認証済み一時クレデンシャルを使い、ブラウザから Transcribe Streaming へ直接接続する
+B) API Gateway WebSocket + Lambda 中継で Transcribe Streaming に接続する
+C) 両方を設計し、ブラウザ直接接続を主方式、Lambda 中継を文書化されたフォールバックとする
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 7: Observability Component Boundary
+### Question 7: 観測性コンポーネントの境界
 
-How should observability be handled across components?
+観測性はコンポーネント横断でどのように扱いますか？
 
-A) Central client/server observability module used by all components
-B) Each feature owns its own event emission and logging calls
-C) Central event schema with feature-owned adapters for emitting events
+A) 全コンポーネントが利用する中央集約の client/server observability module を置く
+B) 各機能が自分のイベント送信とログ呼び出しを所有する
+C) イベントスキーマは中央集約し、イベント送信用アダプターは各機能が所有する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 8: Shared Contract Definition
+### Question 8: 共有コントラクト定義
 
-Where should shared Card, API, and AI response contracts be defined conceptually?
+Card、API、AI 応答の共有コントラクトは概念上どこで定義しますか？
 
-A) In a shared TypeScript domain package/module used by frontend and backend
-B) Separately in frontend and backend, synchronized through generated Amplify types and Zod schemas
-C) Backend owns source-of-truth schemas; frontend consumes generated API types and local view models
+A) フロントエンドとバックエンドが利用する共有 TypeScript domain package/module に定義する
+B) フロントエンドとバックエンドで別々に定義し、生成された Amplify 型と Zod スキーマで同期する
+C) バックエンドが source-of-truth のスキーマを所有し、フロントエンドは生成 API 型とローカル view model を利用する
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-### Question 9: Error Handling Design Boundary
+### Question 9: エラーハンドリング設計の境界
 
-How should user-visible errors be modeled in the application design?
+ユーザーに表示するエラーは、アプリケーション設計上どのようにモデル化しますか？
 
-A) A shared typed error model maps backend/system errors to safe UI messages
-B) Each feature defines its own user-visible error messages
-C) Backend returns only generic messages; frontend decides all detailed recovery guidance
+A) 共有の型付きエラーモデルで、バックエンド/システムエラーを安全な UI メッセージへマッピングする
+B) 各機能が自分のユーザー向けエラーメッセージを定義する
+C) バックエンドは汎用メッセージのみ返し、詳細な復旧案内はすべてフロントエンドが決める
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: 
 
-## Approval Gate
+## 承認ゲート
 
-After all `[Answer]:` tags are completed and validated, this plan will be submitted for explicit approval.
-Application Design artifacts are generated only after plan approval.
+すべての `[Answer]:` タグが記入され、検証された後、この計画を明示的な承認に回す。
+アプリケーション設計成果物は、計画承認後にのみ生成する。
 
-## Extension Compliance
+## 拡張ルール準拠
 
 ### Security Baseline
 
-Status: Compliant for planning.
+Status: 計画段階では準拠。
 
-Security-relevant boundaries are explicitly covered by questions about auth, guardrails, persistence, orchestration, Transcribe credentials, observability, shared contracts, and safe error handling.
+認証、ガードレール、永続化、オーケストレーション、Transcribe クレデンシャル、観測性、共有コントラクト、安全なエラーハンドリングに関する質問により、セキュリティ関連の境界を明示的に扱っている。
 
 ### Property-Based Testing
 
-Status: N/A for Application Design planning.
+Status: Application Design planning では N/A。
 
-PBT Partial enforcement applies in later NFR Requirements, Code Generation, and Build and Test stages.
+PBT Partial enforcement は、後続の NFR Requirements、Code Generation、Build and Test ステージで適用する。
