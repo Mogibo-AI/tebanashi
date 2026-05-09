@@ -26,21 +26,21 @@
 - [x] この計画内のすべての `[Answer]:` タグに対する回答を収集する
 - [x] 回答の曖昧さや矛盾を分析する
 - [x] 必要に応じて追加質問を作成する（不要。ブロッキングな曖昧さなし）
-- [ ] このアプリケーション設計計画の明示的な承認を得る
+- [x] このアプリケーション設計計画の明示的な承認を得る
 
 ## 設計生成チェックリスト
 
-- [ ] `aidlc-docs/inception/application-design/components.md` を生成する
-- [ ] `aidlc-docs/inception/application-design/component-methods.md` を生成する
-- [ ] `aidlc-docs/inception/application-design/services.md` を生成する
-- [ ] `aidlc-docs/inception/application-design/component-dependency.md` を生成する
-- [ ] `aidlc-docs/inception/application-design/application-design.md` を生成する
-- [ ] コンポーネント名、目的、責務、インターフェースを定義する
-- [ ] 高レベルのメソッドシグネチャと入出力型を定義する
-- [ ] サービスのオーケストレーション境界を定義する
-- [ ] 依存関係と通信パターンを定義する
-- [ ] Security Baseline との整合性を検証する
-- [ ] PBT Partial の義務を該当する後続ステージへ引き継ぐ
+- [x] `aidlc-docs/inception/application-design/components.md` を生成する
+- [x] `aidlc-docs/inception/application-design/component-methods.md` を生成する
+- [x] `aidlc-docs/inception/application-design/services.md` を生成する
+- [x] `aidlc-docs/inception/application-design/component-dependency.md` を生成する
+- [x] `aidlc-docs/inception/application-design/application-design.md` を生成する
+- [x] コンポーネント名、目的、責務、インターフェースを定義する
+- [x] 高レベルのメソッドシグネチャと入出力型を定義する
+- [x] サービスのオーケストレーション境界を定義する
+- [x] 依存関係と通信パターンを定義する
+- [x] Security Baseline との整合性を検証する
+- [x] PBT Partial の義務を該当する後続ステージへ引き継ぐ
 
 ## 想定コンポーネント領域
 
