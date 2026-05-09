@@ -23,9 +23,9 @@
 - [x] 承認済みユーザーストーリーとペルソナを読む
 - [x] 承認済み実行計画を読む
 - [x] アプリケーション設計計画を作成する
-- [ ] この計画内のすべての `[Answer]:` タグに対する回答を収集する
-- [ ] 回答の曖昧さや矛盾を分析する
-- [ ] 必要に応じて追加質問を作成する
+- [x] この計画内のすべての `[Answer]:` タグに対する回答を収集する
+- [x] 回答の曖昧さや矛盾を分析する
+- [x] 必要に応じて追加質問を作成する（不要。ブロッキングな曖昧さなし）
 - [ ] このアプリケーション設計計画の明示的な承認を得る
 
 ## 設計生成チェックリスト
@@ -74,7 +74,7 @@ B) レイヤー別フォルダ: `pages`, `components`, `hooks`, `lib`, `types`
 C) ハイブリッド: ドメイン固有コードは機能別、再利用 UI/hooks/lib は共通レイヤー別
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: C
 
 ### Question 2: 認証 UI の境界
 
@@ -85,7 +85,7 @@ B) Amplify Auth API を直接呼び出す独自ログインページを設計す
 C) 初回スコープでは認証 UI を外部扱いにし、認証済みアプリシェルのみ設計する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: A
 
 ### Question 3: AI 構造化と安全制御の境界
 
@@ -96,7 +96,7 @@ B) Lambda を分ける: ガードレール/安全分類用と Card 構造化用�
 C) フロントエンドは単一バックエンド API を呼ぶが、バックエンド内部では safety と structuring を別モジュールとして設計する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: C
 
 ### Question 4: ガードレール判定結果の永続化
 
@@ -107,7 +107,7 @@ B) `needs_attention` ステータスの Card として永続化し、active card
 C) ユーザーテキストや Card データを含まない最小限の監査/メトリクスイベントだけ永続化する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: C
 
 ### Question 5: Card 作成フローのオーケストレーション
 
@@ -118,7 +118,7 @@ B) バックエンド主導: 1 つのバックエンド処理が構造化と永�
 C) 分割: フロントエンドは UX 状態を担当し、バックエンドは信頼境界内の変更処理と永続化をすべて担当する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: C
 
 ### Question 6: Transcribe Streaming の境界
 
@@ -129,7 +129,7 @@ B) API Gateway WebSocket + Lambda 中継で Transcribe Streaming に接続する
 C) 両方を設計し、ブラウザ直接接続を主方式、Lambda 中継を文書化されたフォールバックとする
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: A
 
 ### Question 7: 観測性コンポーネントの境界
 
@@ -140,7 +140,7 @@ B) 各機能が自分のイベント送信とログ呼び出しを所有する
 C) イベントスキーマは中央集約し、イベント送信用アダプターは各機能が所有する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: A
 
 ### Question 8: 共有コントラクト定義
 
@@ -151,7 +151,7 @@ B) フロントエンドとバックエンドで別々に定義し、生成さ�
 C) バックエンドが source-of-truth のスキーマを所有し、フロントエンドは生成 API 型とローカル view model を利用する
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: C
 
 ### Question 9: エラーハンドリング設計の境界
 
@@ -162,9 +162,27 @@ B) 各機能が自分のユーザー向けエラーメッセージを定義す�
 C) バックエンドは汎用メッセージのみ返し、詳細な復旧案内はすべてフロントエンドが決める
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]: 
+[Answer]: A
 
 ## 承認ゲート
+
+## 回答分析
+
+- **Q1 フロントエンド境界**: C。ドメイン固有コードは機能別、再利用 UI/hooks/lib は共通レイヤー別にする。
+- **Q2 認証 UI 境界**: A。Amplify UI Authenticator を認証境界として使い、アプリ固有の軽いラップだけ行う。
+- **Q3 AI 構造化と安全制御**: C。フロントエンドは単一バックエンド API を呼ぶが、バックエンド内部では safety と structuring を別モジュールとして設計する。
+- **Q4 ガードレール結果永続化**: C。ユーザーテキストや Card データを含まない最小限の監査/メトリクスイベントだけ永続化する。
+- **Q5 Card 作成オーケストレーション**: C。フロントエンドは UX 状態を担当し、バックエンドは信頼境界内の変更処理と永続化を担当する。
+- **Q6 Transcribe Streaming 境界**: A。Cognito Identity Pool の認証済み一時クレデンシャルを使い、ブラウザから直接接続する。
+- **Q7 観測性境界**: A。全コンポーネントが利用する中央集約の client/server observability module を置く。
+- **Q8 共有コントラクト定義**: C。バックエンドが source-of-truth のスキーマを所有し、フロントエンドは生成 API 型とローカル view model を利用する。
+- **Q9 エラーハンドリング境界**: A。共有の型付きエラーモデルで、バックエンド/システムエラーを安全な UI メッセージへマッピングする。
+
+### 曖昧さレビュー
+
+ブロッキングな曖昧さや矛盾は見つからなかった。
+Q4 と Q5 は、通常の Card 作成はバックエンドが信頼境界内で永続化し、ガードレール発火時は Card を作らず最小限の監査/メトリクスイベントのみ残す、という扱いで整合する。
+Q3、Q5、Q8、Q9 は、バックエンドを信頼境界としつつ内部モジュール分離と型付きエラー/スキーマ境界を明示する方針として整合する。
 
 すべての `[Answer]:` タグが記入され、検証された後、この計画を明示的な承認に回す。
 アプリケーション設計成果物は、計画承認後にのみ生成する。
