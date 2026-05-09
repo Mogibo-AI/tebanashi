@@ -49,3 +49,5 @@
 - **Requirements Analysis Clarification**: Resolved p95 latency ambiguity. Required release criterion is p95 8 seconds; p95 5 seconds is a stretch target.
 - **Requirements Analysis**: Requirements document generated at `aidlc-docs/inception/requirements/requirements.md` and explicitly approved by the user.
 - **Commit Policy**: Commit by logical AI-DLC unit. Requirements Analysis artifacts are one logical unit; User Stories planning/generation should be committed separately.
+- **User Stories Assessment**: User Stories stage will execute because the approved scope is a new user-facing feature set with direct user workflows, safety scenarios, authentication, data ownership, and acceptance criteria needs.
+- **User Stories Planning**: Story generation plan created at `aidlc-docs/inception/plans/story-generation-plan.md`; awaiting user answers before plan approval and story generation.
