@@ -5,8 +5,8 @@
 - **Project Type**: Greenfield
 - **Start Date**: 2026-05-09T12:03:01Z
 - **Current Phase**: INCEPTION
-- **Current Stage**: Units Generation
-- **Last Completed Stage**: Application Design
+- **Current Stage**: Paused before Construction
+- **Last Completed Stage**: Units Generation
 
 ## Workspace State
 - **Existing Code**: No
@@ -37,7 +37,7 @@
 - [x] INCEPTION - User Stories
 - [x] INCEPTION - Workflow Planning
 - [x] INCEPTION - Application Design
-- [ ] INCEPTION - Units Generation
+- [x] INCEPTION - Units Generation
 - [ ] CONSTRUCTION - Per-Unit Design and Code Generation
 - [ ] CONSTRUCTION - Build and Test
 - [ ] OPERATIONS - Operations Placeholder
@@ -63,9 +63,10 @@
 - **Units Generation Planning**: Unit of work plan created at `aidlc-docs/inception/plans/unit-of-work-plan.md`; awaiting user answers before plan approval and unit artifact generation.
 - **Units Generation Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before unit artifact generation.
 - **Units Generation**: Unit of work plan approved and artifacts generated at `aidlc-docs/inception/application-design/unit-of-work.md`, `unit-of-work-dependency.md`, and `unit-of-work-story-map.md`; awaiting user approval before Construction.
+- **Units Generation Approval**: Unit artifacts explicitly approved by the user. Per user instruction, do not proceed to Construction on this branch; next Construction work should start from a separate branch.
 
 ## Execution Plan Summary
 - **Stages to Execute**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design, Code Generation, Build and Test
 - **Stages to Skip**: Reverse Engineering (no application code), Operations (placeholder)
 - **Risk Level**: High
-- **Recommended Next Stage**: Units Generation approval, then Construction - Functional Design
+- **Recommended Next Stage**: Construction - Functional Design on a separate branch
