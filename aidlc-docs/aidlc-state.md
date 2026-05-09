@@ -60,6 +60,7 @@
 - **Application Design Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before design artifact generation.
 - **Application Design**: Plan approved and artifacts generated at `aidlc-docs/inception/application-design/`; awaiting user approval before Units Generation.
 - **Application Design Approval**: Application design artifacts explicitly approved by the user. Proceed to Units Generation.
+- **Units Generation Planning**: Unit of work plan created at `aidlc-docs/inception/plans/unit-of-work-plan.md`; awaiting user answers before plan approval and unit artifact generation.
 
 ## Execution Plan Summary
 - **Stages to Execute**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design, Code Generation, Build and Test
