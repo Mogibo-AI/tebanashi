@@ -5,7 +5,7 @@
 - **Project Type**: Greenfield
 - **Start Date**: 2026-05-09T12:03:01Z
 - **Current Phase**: INCEPTION
-- **Current Stage**: Application Design Review
+- **Current Stage**: Units Generation
 - **Last Completed Stage**: Application Design
 
 ## Workspace State
@@ -59,9 +59,10 @@
 - **Application Design Planning**: Application design plan created at `aidlc-docs/inception/plans/application-design-plan.md`; awaiting user answers before plan approval and design artifact generation.
 - **Application Design Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before design artifact generation.
 - **Application Design**: Plan approved and artifacts generated at `aidlc-docs/inception/application-design/`; awaiting user approval before Units Generation.
+- **Application Design Approval**: Application design artifacts explicitly approved by the user. Proceed to Units Generation.
 
 ## Execution Plan Summary
 - **Stages to Execute**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design, Code Generation, Build and Test
 - **Stages to Skip**: Reverse Engineering (no application code), Operations (placeholder)
 - **Risk Level**: High
-- **Recommended Next Stage**: Application Design
+- **Recommended Next Stage**: Units Generation
