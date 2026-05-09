@@ -62,9 +62,10 @@
 - **Application Design Approval**: Application design artifacts explicitly approved by the user. Proceed to Units Generation.
 - **Units Generation Planning**: Unit of work plan created at `aidlc-docs/inception/plans/unit-of-work-plan.md`; awaiting user answers before plan approval and unit artifact generation.
 - **Units Generation Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before unit artifact generation.
+- **Units Generation**: Unit of work plan approved and artifacts generated at `aidlc-docs/inception/application-design/unit-of-work.md`, `unit-of-work-dependency.md`, and `unit-of-work-story-map.md`; awaiting user approval before Construction.
 
 ## Execution Plan Summary
 - **Stages to Execute**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design, Code Generation, Build and Test
 - **Stages to Skip**: Reverse Engineering (no application code), Operations (placeholder)
 - **Risk Level**: High
-- **Recommended Next Stage**: Units Generation
+- **Recommended Next Stage**: Units Generation approval, then Construction - Functional Design

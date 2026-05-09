@@ -34,18 +34,18 @@ Units Generation は 2 段階で進める。
 - [x] すべての `[Answer]:` を収集する
 - [x] 回答の曖昧さ、矛盾、未定義語を分析する
 - [x] 必要であればフォローアップ質問を追加する
-- [ ] ユニット分割計画の明示承認を得る
+- [x] ユニット分割計画の明示承認を得る
 
 ## 4. 生成対象成果物チェックリスト
 
 計画承認後、次の成果物を生成する。
 
-- [ ] `aidlc-docs/inception/application-design/unit-of-work.md` にユニット定義、責務、境界、Greenfield のコード構成方針を記述する
-- [ ] `aidlc-docs/inception/application-design/unit-of-work-dependency.md` にユニット依存関係と依存マトリクスを記述する
-- [ ] `aidlc-docs/inception/application-design/unit-of-work-story-map.md` にユーザーストーリーからユニットへの対応を記述する
-- [ ] ユニット境界と依存関係を検証する
-- [ ] すべてのストーリーがいずれかのユニットに割り当てられていることを検証する
-- [ ] Security Baseline と PBT Partial の責務が後続ステージに引き継がれていることを確認する
+- [x] `aidlc-docs/inception/application-design/unit-of-work.md` にユニット定義、責務、境界、Greenfield のコード構成方針を記述する
+- [x] `aidlc-docs/inception/application-design/unit-of-work-dependency.md` にユニット依存関係と依存マトリクスを記述する
+- [x] `aidlc-docs/inception/application-design/unit-of-work-story-map.md` にユーザーストーリーからユニットへの対応を記述する
+- [x] ユニット境界と依存関係を検証する
+- [x] すべてのストーリーがいずれかのユニットに割り当てられていることを検証する
+- [x] Security Baseline と PBT Partial の責務が後続ステージに引き継がれていることを確認する
 
 ## 5. 現時点の分割仮説
 
@@ -219,17 +219,17 @@ X) その他。具体的に記入する
 
 ## 9. 計画承認後の生成手順
 
-- [ ] 承認済み回答を読み込む
-- [ ] 最終ユニット一覧を確定する
-- [ ] `unit-of-work.md` を生成する
-- [ ] `unit-of-work-dependency.md` を生成する
-- [ ] `unit-of-work-story-map.md` を生成する
-- [ ] 依存関係、ストーリー割り当て、NFR/Security/PBT 引き継ぎを検証する
-- [ ] Units Generation 完了レビューを提示する
+- [x] 承認済み回答を読み込む
+- [x] 最終ユニット一覧を確定する
+- [x] `unit-of-work.md` を生成する
+- [x] `unit-of-work-dependency.md` を生成する
+- [x] `unit-of-work-story-map.md` を生成する
+- [x] 依存関係、ストーリー割り当て、NFR/Security/PBT 引き継ぎを検証する
+- [x] Units Generation 完了レビューを提示する
 
 ## 10. 現在の停止条件
 
-この計画が明示承認されるまで、次の成果物は生成しない。
+Units Generation 成果物が明示承認されるまで、Construction phase には進まない。
 
 - `aidlc-docs/inception/application-design/unit-of-work.md`
 - `aidlc-docs/inception/application-design/unit-of-work-dependency.md`
