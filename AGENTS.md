@@ -5,6 +5,24 @@
 - When the user invokes AI-DLC, read and follow `.aidlc/aws-aidlc-rules/aws-aidlc-rules/core-workflow.md` to start the workflow.
 - AI-DLC related documentation should be generated in Japanese.
 
+## Required Git Procedure
+
+Before modifying files:
+
+- Check the current branch.
+- Do not modify files directly on `main`.
+- If currently on `main`, create a short-lived branch before editing.
+- If not on `main`, confirm the branch is based on the latest `main`; otherwise ask the user before switching or rebasing.
+- Keep the branch scoped to one unit or one small change.
+
+Recommended commands when starting from `main`:
+
+```bash
+git fetch origin
+git pull --ff-only origin main
+git checkout -b feature/<unit-name>
+```
+
 ## Commit Rules
 
 - Use Conventional Commits.
