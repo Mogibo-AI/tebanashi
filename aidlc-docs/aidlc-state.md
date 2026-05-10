@@ -1,0 +1,72 @@
+# AI-DLC State Tracking
+
+## Project Information
+- **Project Name**: Tebanashi
+- **Project Type**: Greenfield
+- **Start Date**: 2026-05-09T12:03:01Z
+- **Current Phase**: INCEPTION
+- **Current Stage**: Paused before Construction
+- **Last Completed Stage**: Units Generation
+
+## Workspace State
+- **Existing Code**: No
+- **Programming Languages Found**: None
+- **Build System Found**: None
+- **Project Structure**: Empty application workspace with AI-DLC inputs and repository guidance
+- **Reverse Engineering Needed**: No
+- **Workspace Root**: /home/terre/dev/tebanashi
+
+## Code Location Rules
+- **Application Code**: Workspace root (NEVER in aidlc-docs/)
+- **Documentation**: aidlc-docs/ only
+- **Structure patterns**: See code-generation.md Critical Rules
+
+## Input Documents
+- `.aidlc/inputs/vision-document.md`
+- `.aidlc/inputs/technical-environment-document.md`
+
+## Extension Configuration
+| Extension | Enabled | Mode | Decided At |
+|---|---|---|---|
+| Security Baseline | Yes | Full blocking enforcement | Requirements Analysis |
+| Property-Based Testing | Yes | Partial: PBT-02, PBT-03, PBT-07, PBT-08, PBT-09 enforced | Requirements Analysis |
+
+## Stage Progress
+- [x] INCEPTION - Workspace Detection
+- [x] INCEPTION - Requirements Analysis
+- [x] INCEPTION - User Stories
+- [x] INCEPTION - Workflow Planning
+- [x] INCEPTION - Application Design
+- [x] INCEPTION - Units Generation
+- [ ] CONSTRUCTION - Per-Unit Design and Code Generation
+- [ ] CONSTRUCTION - Build and Test
+- [ ] OPERATIONS - Operations Placeholder
+
+## Stage Decisions
+- **Workspace Detection**: Completed. Greenfield project. Proceed to Requirements Analysis.
+- **Reverse Engineering**: Skipped because no application code or build files were found.
+- **Requirements Analysis Answers**: Received and validated. No blocking contradictions found.
+- **Requirements Analysis Clarification**: Resolved p95 latency ambiguity. Required release criterion is p95 8 seconds; p95 5 seconds is a stretch target.
+- **Requirements Analysis**: Requirements document generated at `aidlc-docs/inception/requirements/requirements.md` and explicitly approved by the user.
+- **Commit Policy**: Commit by logical AI-DLC unit. Requirements Analysis artifacts are one logical unit; User Stories planning/generation should be committed separately.
+- **User Stories Assessment**: User Stories stage will execute because the approved scope is a new user-facing feature set with direct user workflows, safety scenarios, authentication, data ownership, and acceptance criteria needs.
+- **User Stories Planning**: Story generation plan created at `aidlc-docs/inception/plans/story-generation-plan.md`; awaiting user answers before plan approval and story generation.
+- **User Stories Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before story generation.
+- **User Stories Generation**: Plan approved and artifacts generated at `aidlc-docs/inception/user-stories/stories.md` and `aidlc-docs/inception/user-stories/personas.md`; awaiting user approval before Workflow Planning.
+- **User Stories**: Stories and personas explicitly approved by the user. Proceed to Workflow Planning.
+- **Workflow Planning**: Execution plan generated at `aidlc-docs/inception/plans/execution-plan.md`; awaiting user approval before Application Design.
+- **Workflow Planning Approval**: Execution plan explicitly approved by the user. Proceed to Application Design.
+- **Application Design Planning**: Application design plan created at `aidlc-docs/inception/plans/application-design-plan.md`; awaiting user answers before plan approval and design artifact generation.
+- **Application Design Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before design artifact generation.
+- **Application Design**: Plan approved and artifacts generated at `aidlc-docs/inception/application-design/`; awaiting user approval before Units Generation.
+- **Application Design Approval**: Application design artifacts explicitly approved by the user. Proceed to Units Generation.
+- **Units Generation Planning**: Unit of work plan created at `aidlc-docs/inception/plans/unit-of-work-plan.md`; awaiting user answers before plan approval and unit artifact generation.
+- **Units Generation Planning Answers**: Received and validated. No clarification questions required. Awaiting explicit plan approval before unit artifact generation.
+- **Units Generation**: Unit of work plan approved and artifacts generated at `aidlc-docs/inception/application-design/unit-of-work.md`, `unit-of-work-dependency.md`, and `unit-of-work-story-map.md`; awaiting user approval before Construction.
+- **Units Generation Approval**: Unit artifacts explicitly approved by the user. Per user instruction, do not proceed to Construction on this branch; next Construction work should start from a separate branch.
+
+## Execution Plan Summary
+- **Stages to Execute**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design, Code Generation, Build and Test
+- **Stages to Skip**: Reverse Engineering (no application code), Operations (placeholder)
+- **Risk Level**: High
+- **Recommended Next Stage**: Construction - Functional Design on a separate branch
